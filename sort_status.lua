@@ -1,3 +1,5 @@
+local max_users = tonumber(minetest.settings:get("max_users")) or 15
+
 local lc_cmp = futil.lc_cmp
 
 local function sort_names(names, delim)
@@ -22,8 +24,10 @@ function minetest.get_server_status(player_name, login)
 		return status
 	end
 
-	return ("# Server: %s clients=%s"):format(
+	return ("# Server: %s clients (%i/%i): %s"):format(
         text,
+		#minetest.get_connected_players(),
+		max_users,
         sort_names(names, ", ")
     )
 end

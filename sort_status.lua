@@ -1,6 +1,6 @@
 local max_users = tonumber(minetest.settings:get("max_users")) or 15
 
-local lc_cmp = futil.lc_cmp
+local lc_cmp = string.lc_cmp
 
 local function sort_names(names, delim)
 	local sorted_names = {}

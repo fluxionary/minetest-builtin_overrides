@@ -1,4 +1,4 @@
-local lc_cmp = futil.lc_cmp
+local lc_cmp = string.lc_cmp
 
 local basic_privs = minetest.string_to_privs(minetest.settings:get("default_privs") or "interact, shout")
 for priv in pairs(minetest.string_to_privs(minetest.settings:get("basic_privs") or "interact, shout")) do

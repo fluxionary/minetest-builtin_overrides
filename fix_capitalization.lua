@@ -54,3 +54,42 @@ minetest.send_leave_message = wrap(minetest.send_leave_message, fix_arg(1))
 minetest.record_protection_violation = wrap(minetest.record_protection_violation, fix_arg(2))
 minetest.is_creative_enabled = wrap(minetest.is_creative_enabled, fix_arg(1))
 minetest.is_area_protected = wrap(minetest.is_area_protected, fix_arg(3))
+
+local function override_chatcommand(command_name, arg_processor)
+	local old_func = minetest.registered_chatcommands[command_name].func
+	if not old_func then
+		error("unknown chat command " .. command_name)
+	end
+	minetest.override_chatcommand(command_name, {
+		func = function(name, param)
+			return old_func(name, arg_processor(param))
+		end,
+	})
+end
+
+local function strip_and_fix(name)
+	return fix_name(name:strip())
+end
+
+local function split_and_fix(i)
+	return function(param)
+		local args = param:split("%s", false, -1, true)
+		args[i] = fix_name(args[i])
+		return table.concat(args, " ")
+	end
+end
+
+override_chatcommand("ban", strip_and_fix)
+override_chatcommand("clearinv", strip_and_fix)
+override_chatcommand("clearpassword", strip_and_fix)
+override_chatcommand("give", split_and_fix(1))
+override_chatcommand("grant", split_and_fix(1))
+override_chatcommand("kick", split_and_fix(1))
+override_chatcommand("kill", split_and_fix(1))
+override_chatcommand("last-login", split_and_fix(1))
+override_chatcommand("msg", split_and_fix(1))
+override_chatcommand("privs", split_and_fix(1))
+override_chatcommand("remove_player", split_and_fix(1))
+override_chatcommand("revoke", split_and_fix(1))
+override_chatcommand("setpassword", split_and_fix(1))
+override_chatcommand("unban", split_and_fix(1))

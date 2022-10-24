@@ -18,6 +18,7 @@ builtin_overrides = {
 	S = S,
 
 	has = {
+		canonical_name = minetest.get_modpath("canonical_name"),
 	},
 
 	log = function(level, messagefmt, ...)
@@ -30,6 +31,11 @@ builtin_overrides = {
 }
 
 builtin_overrides.dofile("settings")
+
 builtin_overrides.dofile("sort_privs")
 builtin_overrides.dofile("sort_status")
 builtin_overrides.dofile("split_long_messages")
+
+if builtin_overrides.has.canonical_name then
+	builtin_overrides.dofile("fix_capitalization")
+end

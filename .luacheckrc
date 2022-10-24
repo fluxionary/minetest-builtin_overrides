@@ -28,6 +28,7 @@ stds.builtin_overrides = {
 		"builtin_overrides",
 	},
 	read_globals = {
+		"canonical_name",
 		"futil",
 	},
 }

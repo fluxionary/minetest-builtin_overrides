@@ -67,8 +67,8 @@ local function override_chatcommand(command_name, arg_processor)
 	})
 end
 
-local function strip_and_fix(name)
-	return fix_name(name:strip())
+local function trim_and_fix	(name)
+	return fix_name(name:trim())
 end
 
 local function split_and_fix(i)
@@ -79,9 +79,9 @@ local function split_and_fix(i)
 	end
 end
 
-override_chatcommand("ban", strip_and_fix)
-override_chatcommand("clearinv", strip_and_fix)
-override_chatcommand("clearpassword", strip_and_fix)
+override_chatcommand("ban", trim_and_fix)
+override_chatcommand("clearinv", trim_and_fix)
+override_chatcommand("clearpassword", trim_and_fix)
 override_chatcommand("give", split_and_fix(1))
 override_chatcommand("grant", split_and_fix(1))
 override_chatcommand("kick", split_and_fix(1))

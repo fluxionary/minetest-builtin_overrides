@@ -1,2 +1,17 @@
+# requires canonical_name to be installed
+builtin_overrides.fix_capitalization.enabled (fix capitalization) bool true
+
+# punching item entities will put them into your hand if it's empty, *unless* the item has a custom on_use
+builtin_overrides.settings.pickup_to_wieldslot.enabled (pickup to wielded slot) bool true
+
+# sort the output of the /privs command
+builtin_overrides.sort_privs.enabled (sort privs) bool true
+
 # if true, will highlight non-default and admin privs w/ colors
-builtin_overrides.color_privs (color privs) bool true
+builtin_overrides.sort_privs.color_privs (color privs) bool false
+
+# sort the output of the /status command
+builtin_overrides.sort_status.enabled (sort names in status) bool true
+
+# break up long messages instead of crashing the server
+builtin_overrides.split_long_messages.enabled (split long messages) bool true

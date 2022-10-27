@@ -32,10 +32,22 @@ builtin_overrides = {
 
 builtin_overrides.dofile("settings")
 
-builtin_overrides.dofile("sort_privs")
-builtin_overrides.dofile("sort_status")
-builtin_overrides.dofile("split_long_messages")
+if builtin_overrides.settings.pickup_to_wieldslot.enabled then
+	builtin_overrides.dofile("pickup_to_wieldslot")
+end
 
-if builtin_overrides.has.canonical_name then
+if builtin_overrides.settings.sort_privs.enabled then
+	builtin_overrides.dofile("sort_privs")
+end
+
+if builtin_overrides.settings.sort_status.enabled then
+	builtin_overrides.dofile("sort_status")
+end
+
+if builtin_overrides.settings.split_long_messages.enabled then
+	builtin_overrides.dofile("split_long_messages")
+end
+
+if builtin_overrides.has.canonical_name and builtin_overrides.settings.fix_capitalization.enabled then
 	builtin_overrides.dofile("fix_capitalization")
 end

@@ -5,7 +5,7 @@ builtin_overrides.settings = {
 		enabled = s:get_bool("builtin_overrides.fix_capitalization.enabled", true),
 	},
 	pickup_to_wieldslot = {
-		enabled = s:get_bool("builtin_overrides.settings.pickup_to_wieldslot.enabled", true)
+		enabled = s:get_bool("builtin_overrides.settings.pickup_to_wieldslot.enabled", true),
 	},
 	sort_privs = {
 		enabled = s:get_bool("builtin_overrides.sort_privs.enabled", true),

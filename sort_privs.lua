@@ -18,18 +18,17 @@ end)
 local function sort_privs(priv_string, delim)
 	local sorted_privs = {}
 
-    for name in priv_string:gmatch("[%w_%-]+") do
-        table.insert(sorted_privs, name)
-    end
+	for name in priv_string:gmatch("[%w_%-]+") do
+		table.insert(sorted_privs, name)
+	end
 
-    table.sort(sorted_privs, lc_cmp)
+	table.sort(sorted_privs, lc_cmp)
 
 	if builtin_overrides.settings.color_privs then
 		for i = 1, #sorted_privs do
 			local priv = sorted_privs[i]
 			if admin_privs[priv] and not basic_privs[priv] then
 				sorted_privs[i] = minetest.colorize("#6666FF", priv)
-
 			elseif not basic_privs[priv] then
 				sorted_privs[i] = minetest.colorize("#66FF66", priv)
 			end

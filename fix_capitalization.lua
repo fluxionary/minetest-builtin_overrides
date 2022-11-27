@@ -16,7 +16,7 @@ end
 
 local function fix_arg(i)
 	return function(...)
-		local args = {...}
+		local args = { ... }
 		args[i] = fix_name(args[i])
 		return unpack(args)
 	end
@@ -67,7 +67,7 @@ local function override_chatcommand(command_name, arg_processor)
 	})
 end
 
-local function trim_and_fix	(name)
+local function trim_and_fix(name)
 	return fix_name(name:trim())
 end
 

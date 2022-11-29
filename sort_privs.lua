@@ -1,5 +1,7 @@
 local lc_cmp = futil.string.lc_cmp
 
+local color_privs = builtin_overrides.settings.sort_privs_color_privs
+
 local basic_privs = minetest.string_to_privs(minetest.settings:get("default_privs") or "interact, shout")
 for priv in pairs(minetest.string_to_privs(minetest.settings:get("basic_privs") or "interact, shout")) do
 	basic_privs[priv] = true
@@ -24,7 +26,7 @@ local function sort_privs(priv_string, delim)
 
 	table.sort(sorted_privs, lc_cmp)
 
-	if builtin_overrides.settings.color_privs then
+	if color_privs then
 		for i = 1, #sorted_privs do
 			local priv = sorted_privs[i]
 			if admin_privs[priv] and not basic_privs[priv] then

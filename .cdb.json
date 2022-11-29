@@ -1,7 +1,11 @@
 {
     "type": "MOD",
+    "name": "builtin_overrides",
     "title": "builtin overrides",
     "short_description": "minor QOL overrides for some builtin behaviors",
+    "repo": "https://github.com/fluxionary/minetest-builtin_overrides.git",
+    "website": "https://github.com/fluxionary/minetest-builtin_overrides",
+    "issue_tracker": "https://github.com/fluxionary/minetest-builtin_overrides/issues",
     "license": "AGPL-3.0-or-later",
-    "media_license": "AGPL-3.0-or-later"
+    "media_license": "CC-BY-SA-4.0"
 }

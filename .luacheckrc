@@ -3,7 +3,7 @@ unused_args = false
 max_line_length = 120
 
 stds.minetest = {
-	read_globals = {
+	globals = {
 		"DIR_DELIM",
 		"dump",
 		"dump2",

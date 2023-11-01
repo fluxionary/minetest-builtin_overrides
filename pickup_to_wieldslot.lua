@@ -8,7 +8,7 @@ end
 local old_on_punch = item_entity_def.on_punch
 
 function item_entity_def.on_punch(self, hitter)
-	if not minetest.is_player(hitter) then
+	if not futil.is_player(hitter) then
 		return
 	end
 
